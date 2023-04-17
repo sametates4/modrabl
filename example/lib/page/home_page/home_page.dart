@@ -15,13 +15,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(title: const Text('Modrabl Example'),),
       body: Column(
-
         children: [
-          Container(
-            width: context.width,
-            height: 50,
-            color: Colors.orange,
-          ),
+          const ImageNetwork(imageUrl: 'https://picsum.photos/200/300').borderNormal,
           context.spacerHeight,
           Container(
             width: context.width,
