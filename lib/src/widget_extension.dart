@@ -9,7 +9,14 @@ extension WidgetPaddingExtension on Widget {
       );
 
   Widget get borderNormal => Container(
-      decoration:
-          BoxDecoration(border: Border.all(color: Colors.black, width: 0.5)),
-      child: this).paddingAll;
+          decoration: BoxDecoration(
+              border: Border.all(color: Colors.black, width: 0.5)),
+          child: this)
+      .paddingAll;
+}
+
+extension CenterExtension on Widget {
+  Widget get center => Center(
+        child: this,
+      );
 }
