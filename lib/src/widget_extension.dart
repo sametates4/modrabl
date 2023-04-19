@@ -20,3 +20,7 @@ extension CenterExtension on Widget {
         child: this,
       );
 }
+
+extension ExpandedExtension on Widget {
+  Widget get expanded => Expanded(child: this);
+}
