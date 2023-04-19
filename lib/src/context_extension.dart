@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:math';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 
 import 'constants/string_constants.dart';
@@ -87,29 +88,30 @@ extension NavigationExtension on BuildContext {
   void popWithRoot() => Navigator.of(this, rootNavigator: true).pop();
 
   Future<T?> navigateName<T extends Object?>(
-      String path, {
-        Object? data,
-      }) async {
+    String path, {
+    Object? data,
+  }) async {
     return navigation.pushNamed<T>(path, arguments: data);
   }
 
   Future<T?> navigateToReset<T extends Object?>(
-      String path, {
-        Object? data,
-      }) async {
+    String path, {
+    Object? data,
+  }) async {
     return navigation.pushNamedAndRemoveUntil(
       path,
-          (route) => false,
+      (route) => false,
       arguments: data,
     );
   }
 
   Future<T?> navigateToPage<T extends Object?>(
-      Widget page, {
-        Object? extra,
-        SlideType type = SlideType.DEFAULT,
-      }) async {
-    return navigation.push<T>(type.route(page, RouteSettings(arguments: extra)));
+    Widget page, {
+    Object? extra,
+    SlideType type = SlideType.DEFAULT,
+  }) async {
+    return navigation
+        .push<T>(type.route(page, RouteSettings(arguments: extra)));
   }
 }
 
@@ -117,4 +119,12 @@ extension RadiusExtension on BuildContext {
   Radius get lowRadius => Radius.circular(width * 0.02);
   Radius get normalRadius => Radius.circular(width * 0.05);
   Radius get highRadius => Radius.circular(width * 0.1);
+}
+
+extension ConnectivityExtension on BuildContext {
+  Future<bool> get checkConnectivity async {
+    ConnectivityResult result = await Connectivity().checkConnectivity();
+    bool hasInternet = result != ConnectivityResult.none;
+    return hasInternet ? true : false;
+  }
 }
