@@ -12,3 +12,4 @@ export 'src/widget_extension.dart';
 
 export 'src/widget/sheet_divider.dart';
 export 'src/widget/image_network.dart';
+export 'src/widget/check_connectivity.dart';

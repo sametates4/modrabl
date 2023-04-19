@@ -9,35 +9,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(title: const Text('Modrabl Example'),),
-      body: Column(
-        children: [
-          const ImageNetwork(imageUrl: 'https://picsum.photos/200/300').borderNormal,
-          context.spacerHeight,
-          Container(
-            width: context.width,
-            height: 50,
-            color: Colors.yellow,
-          ),
-          context.spacerHeight,
-          Container(
-            width: context.width,
-            height: 50,
-            color: Colors.red,
-          ),
-          context.spacerHeight,
-          Container(
-            width: context.width,
-            height: 50,
-            color: Colors.blue,
-          ),
-          context.spacerHeight,
-        ],
-      ).paddingAll
+      body: CheckConnectivity(
+        child: Column(
+          children: [
+            const ImageNetwork(imageUrl: 'https://picsum.photos/200/300').center,
+            context.spacerHeight,
+            const ImageNetwork(imageUrl: 'https://picsum.photos/200/300'),
+          ],
+        ).paddingAll,
+      )
     );
   }
 }
