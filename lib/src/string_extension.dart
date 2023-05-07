@@ -10,11 +10,11 @@ extension StringValidatorExtension on String {
   bool get isNotNullOrNoEmpty => !isNullOrEmpty;
 
   bool get isValidEmail => isNotNullOrNoEmpty
-      ? RegExp(RegexConstants.instance.emailRegex).hasMatch(this!)
+      ? RegExp(RegexConstants.instance.emailRegex).hasMatch(this)
       : false;
 
   bool get isValidPassword => isNotNullOrNoEmpty
-      ? RegExp(RegexConstants.instance.passwordRegex).hasMatch(this!)
+      ? RegExp(RegexConstants.instance.passwordRegex).hasMatch(this)
       : false;
 
 }

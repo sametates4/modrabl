@@ -128,3 +128,12 @@ extension ConnectivityExtension on BuildContext {
     return hasInternet ? true : false;
   }
 }
+
+extension SheetExtension on BuildContext {
+  Future modalBottomSheet(Widget child) => showModalBottomSheet(
+        context: this,
+        builder: (context) {
+          return child;
+        },
+      );
+}
