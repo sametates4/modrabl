@@ -27,8 +27,6 @@ extension ExpandedExtension on Widget {
 
 extension ContainerExtension on Widget {
   Widget get bottonDivider => Container(
-    width: double.infinity,
-    height: 0.5,
     decoration: const BoxDecoration(
       border: Border(bottom: BorderSide(color: Colors.black26))
     ),
