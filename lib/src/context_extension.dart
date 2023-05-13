@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:math';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 
 import 'constants/string_constants.dart';
@@ -129,9 +130,18 @@ extension ConnectivityExtension on BuildContext {
   }
 }
 
+extension DeviceInfo on BuildContext {
+  Future<Map<String, dynamic>> get checkDeviceInfo async {
+    final deviceInfoPlugin = DeviceInfoPlugin();
+    final deviceInfo = await deviceInfoPlugin.deviceInfo;
+    return deviceInfo.data;
+  }
+}
+
 extension SheetExtension on BuildContext {
-  Future modalBottomSheet(Widget child) => showModalBottomSheet(
+  Future modalBottomSheet({required Widget child, required bool isScroll}) => showModalBottomSheet(
         context: this,
+        enableDrag: isScroll,
         builder: (context) {
           return child;
         },

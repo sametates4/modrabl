@@ -10,6 +10,19 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
+  Map<String, dynamic> info = {};
+
+  @override
+  void initState() {
+    super.initState();
+    getDeviceInfo();
+  }
+
+  void getDeviceInfo() async {
+      info = await context.checkDeviceInfo;
+      debugPrint('${info['fingerprint']}/${info['id']}/${info['board']}');
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -17,13 +30,14 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.white,
       appBar: AppBar(title: const Text('Modrabl Example'),),
       body: CheckConnectivity(
-        child: Column(
-          children: [
-            const ImageNetwork(imageUrl: 'https://picsum.photos/200/300').center,
-            context.spacerHeight,
-            const ImageNetwork(imageUrl: 'https://picsum.photos/200/300'),
-          ],
-        ).paddingAll,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              context.spacerHeight,
+              Text('${info['fingerprint']}/${info['id']}/${info['board']}'),
+            ],
+          ).paddingAll,
+        ),
       )
     );
   }

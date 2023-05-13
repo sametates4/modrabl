@@ -33,3 +33,9 @@ extension ContainerExtension on Widget {
     child: this,
   );
 }
+
+extension SingleChildExtension on Widget {
+  Widget get singleChildScrollView => SingleChildScrollView(
+    child: this,
+  );
+}
