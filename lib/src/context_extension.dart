@@ -150,7 +150,7 @@ extension SheetExtension on BuildContext {
 }
 
 extension EncryptExtension on BuildContext {
-  Future<String> encrypt ({required String cryptoKey, required String cryptoIv, required String text}) async {
+  String encrypt ({required String cryptoKey, required String cryptoIv, required String text}) {
     final key = enc.Key.fromBase64(cryptoKey);
     final iv = enc.IV.fromBase64(cryptoIv);
     final encrypter = enc.Encrypter(enc.AES(key, mode: enc.AESMode.cbc));
@@ -158,7 +158,7 @@ extension EncryptExtension on BuildContext {
     return encrypted.base64;
   }
 
-  Future<String> decrypt ({required String cryptoKey, required String cryptoIv, required String text}) async {
+  String decrypt ({required String cryptoKey, required String cryptoIv, required String text}) {
     final key = enc.Key.fromBase64(cryptoKey);
     final iv = enc.IV.fromBase64(cryptoIv);
     final encrypter = enc.Encrypter(enc.AES(key, mode: enc.AESMode.cbc));
