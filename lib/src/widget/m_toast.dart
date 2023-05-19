@@ -49,22 +49,12 @@ class MToast {
       overlay = Overlay.of(context!);
     } catch (err) {
       removeQueuedCustomToasts();
-      throw ("""Error: Overlay is null. 
-      Please don't use top of the widget tree context (such as Navigator or MaterialApp) or 
-      create overlay manually in MaterialApp builder.
-      More information 
-        - https://github.com/ponnamkarthik/FlutterToast/issues/393
-        - https://github.com/ponnamkarthik/FlutterToast/issues/234""");
+      throw ('Bir Hata Var');
     }
     // ignore: unnecessary_null_comparison
     if (overlay == null) {
       removeQueuedCustomToasts();
-      throw ("""Error: Overlay is null. 
-      Please don't use top of the widget tree context (such as Navigator or MaterialApp) or 
-      create overlay manually in MaterialApp builder.
-      More information 
-        - https://github.com/ponnamkarthik/FlutterToast/issues/393
-        - https://github.com/ponnamkarthik/FlutterToast/issues/234""");
+      throw ('Bir Hata Var');
     }
 
     _ToastEntry toastEntry = _overlayQueue.removeAt(0);
@@ -196,5 +186,4 @@ class _ToastState extends State<Toast> with SingleTickerProviderStateMixin {
       ),
     );
   }
-
 }

@@ -6,5 +6,4 @@ extension ImageExtension on Image {
         padding: const EdgeInsets.all(8),
         child: this,
       );
-      
 }

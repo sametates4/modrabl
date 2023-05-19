@@ -1,3 +1,4 @@
+import 'package:example/page/home_page/animated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:modrabl/modrabl.dart';
 
@@ -30,14 +31,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.white,
       appBar: AppBar(title: const Text('Modrabl Example'),),
       body: CheckConnectivity(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              context.spacerHeight,
-              Text('${info['fingerprint']}/${info['id']}/${info['board']}'),
-            ],
-          ).paddingAll,
-        ),
+        child: const AnimatedButton().center,
       )
     );
   }

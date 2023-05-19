@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:encrypt/encrypt.dart' as enc;
 
 import 'constants/string_constants.dart';
 import 'utility/page_animation/slider_route.dart';
@@ -146,4 +147,22 @@ extension SheetExtension on BuildContext {
           return child;
         },
       );
+}
+
+extension EncryptExtension on BuildContext {
+  Future<String> encrypt ({required String cryptoKey, required String cryptoIv, required String text}) async {
+    final key = enc.Key.fromBase64(cryptoKey);
+    final iv = enc.IV.fromBase64(cryptoIv);
+    final encrypter = enc.Encrypter(enc.AES(key, mode: enc.AESMode.cbc));
+    final encrypted = encrypter.encrypt(text, iv: iv);
+    return encrypted.base64;
+  }
+
+  Future<String> decrypt ({required String cryptoKey, required String cryptoIv, required String text}) async {
+    final key = enc.Key.fromBase64(cryptoKey);
+    final iv = enc.IV.fromBase64(cryptoIv);
+    final encrypter = enc.Encrypter(enc.AES(key, mode: enc.AESMode.cbc));
+    final solved = encrypter.decrypt64(text, iv: iv);
+    return solved;
+  }
 }
