@@ -66,6 +66,16 @@ extension SizedBoxExtension on BuildContext {
       );
 }
 
+extension DividerExtension on BuildContext {
+  Widget divider (Color color) => Container(
+    width: width,
+    height: 1,
+    decoration: BoxDecoration(
+      border: Border.all(color: color)
+    ),
+  );
+}
+
 extension BuilderExtension on BuildContext {
   Widget get loading => const Center(
         child: CircularProgressIndicator(),
