@@ -3,16 +3,14 @@ import 'package:flutter/material.dart';
 extension WidgetExtension on Widget {}
 
 extension WidgetPaddingExtension on Widget {
-  Widget get paddingAll => Padding(
-        padding: const EdgeInsets.all(8),
-        child: this,
-      );
+  Widget paddingAll(double padding) =>
+      Padding(padding: EdgeInsets.all(padding), child: this);
 
   Widget get borderNormal => Container(
           decoration: BoxDecoration(
               border: Border.all(color: Colors.black, width: 0.5)),
           child: this)
-      .paddingAll;
+      .paddingAll(8.0);
 }
 
 extension CenterExtension on Widget {
@@ -26,9 +24,9 @@ extension ExpandedExtension on Widget {
 }
 
 extension ContainerExtension on Widget {
-  Widget get bottomDivider => Container(
-    decoration: const BoxDecoration(
-      border: Border(bottom: BorderSide(color: Colors.black26))
+  Widget bottomDivider (Color color) => Container(
+    decoration: BoxDecoration(
+      border: Border(bottom: BorderSide(color: color))
     ),
     child: this,
   );
