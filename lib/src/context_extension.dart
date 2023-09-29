@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'dart:math';
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:encrypt/encrypt.dart' as enc;
@@ -131,14 +130,6 @@ extension RadiusExtension on BuildContext {
   Radius get lowRadius => Radius.circular(width * 0.02);
   Radius get normalRadius => Radius.circular(width * 0.05);
   Radius get highRadius => Radius.circular(width * 0.1);
-}
-
-extension ConnectivityExtension on BuildContext {
-  Future<bool> get checkConnectivity async {
-    ConnectivityResult result = await Connectivity().checkConnectivity();
-    bool hasInternet = result != ConnectivityResult.none;
-    return hasInternet ? true : false;
-  }
 }
 
 extension DeviceInfo on BuildContext {

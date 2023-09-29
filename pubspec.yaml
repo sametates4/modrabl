@@ -8,7 +8,6 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  connectivity_plus: ^4.0.1
   nested: ^1.0.0
   device_info_plus: ^8.0.0
   encrypt: ^5.0.1
