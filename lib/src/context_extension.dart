@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'dart:math';
-import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:encrypt/encrypt.dart' as enc;
 
@@ -130,14 +129,6 @@ extension RadiusExtension on BuildContext {
   Radius get lowRadius => Radius.circular(width * 0.02);
   Radius get normalRadius => Radius.circular(width * 0.05);
   Radius get highRadius => Radius.circular(width * 0.1);
-}
-
-extension DeviceInfo on BuildContext {
-  Future<Map<String, dynamic>> get checkDeviceInfo async {
-    final deviceInfoPlugin = DeviceInfoPlugin();
-    final deviceInfo = await deviceInfoPlugin.deviceInfo;
-    return deviceInfo.data;
-  }
 }
 
 extension SheetExtension on BuildContext {
